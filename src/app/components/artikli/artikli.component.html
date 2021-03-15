@@ -1,0 +1,75 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    <mat-form-field class="example-full-width">
+                      <input [(ngModel)]="filter" matInput placeholder="Pretraživanje">                
+                    </mat-form-field>                
+                </div>     
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Artikli</h4>
+                        <p class="card-category"> </p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th (click)="sort('id')">
+                                        ID 
+                                    </th>
+                                    <th (click)="sort('broj')">
+                                        Broj
+                                    </th>
+                                    <th (click)="sort('naziv')">
+                                        Naziv
+                                    </th>
+                                    <th (click)="sort('jedinica_mjere')">
+                                        Jedinica mjere
+                                    </th>
+                                    <th (click)="sort('porez')">
+                                        Porez
+                                    </th>
+                                    <th (click)="sort('cijena')">
+                                        Cijena
+                                    </th>
+                                    <th></th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let e of artikli | orderBy: key : reverse | filter:filter | paginate: {itemsPerPage: 25, currentPage: p} ; let i=index">
+                                        <td>
+                                            {{e.id}}
+                                        </td>
+                                        <td>
+                                            {{e.broj}}
+                                        </td>
+                                        <td>
+                                            {{e.naziv}}
+                                        </td>
+                                        <td>
+                                            {{e.jedinica_mjere}}
+                                        </td>
+                                        <td>
+                                            {{e.porez}}
+                                        </td>
+                                        <td>
+                                            {{e.cijena}}
+                                        </td>
+                                        <td>
+                                            <button type="button" (click)="routeWithData(e.id)" class="btn btn-danger btn-round">Uredi</button>
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                                <pagination-controls class="custum-pagination" (pageChange)="p= $event" previousLabel="Prethodna" nextLabel="Sljedeća"></pagination-controls>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+  </div>
+  
