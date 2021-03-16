@@ -14,7 +14,7 @@ declare var $: any;
 })
 
 export class PartnerNoviComponent implements OnInit { 
-    idArtikla:number;
+    idPartnera:number;
     broj:string;
     naziv:string;
     adresa:string;
