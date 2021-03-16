@@ -49,6 +49,11 @@ export class DashboardComponent implements OnInit{
         this.korisnici=res.items;
         this.brojKorisnika=this.korisnici.length;
     }) 
+
+    this.http.get('http://localhost:8181/ords/in2/api/racuni').pipe(map(res=>res)).subscribe((res:any)=>{
+        this.racuni=res.items;
+        this.brojRacuna=this.racuni.length;
+    }) 
   }
 
   crtaj(labels, series){
