@@ -1,7 +1,7 @@
 import { browser } from 'protractor';
-import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
+import { HttpClient } from '@angular/common/http';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { param } from 'jquery';
@@ -9,77 +9,48 @@ import { param } from 'jquery';
 declare var $: any;
 
 @Component({
-    selector:'artikl-edit',
-    templateUrl:'./artikl-edit.component.html'
+    selector:'artikl-novi',
+    templateUrl:'./artikl-novi.component.html'
 })
 
-export class ArtiklEditComponent implements OnInit { 
-    id;
-    artikl;
-    idArtikla=0;
-    broj=0;
-    naziv=" ";
-    jed_mjere=" ";
-    porez=0;
-    cijena=0;
-    uspjesno=true;
-    constructor(private route: ActivatedRoute, private http: HttpClient){
-    
-    }
-    ngOnInit(){
-        this.id = this.route.snapshot.paramMap.get('id');
-        
-        this.http.get('http://localhost:8181/ords/in2/api/artikli?id='+this.id).pipe(map(res=>res)).subscribe((res:any)=>{
-            this.artikl=res.items;
-            this.idArtikla=this.artikl[0].id;          
-            this.broj=this.artikl[0].broj;
-            this.naziv=this.artikl[0].naziv;
-            this.jed_mjere=this.artikl[0].jedinica_mjere;
-            this.porez=this.artikl[0].porez;
-            this.cijena=this.artikl[0].cijena;
-        }) 
-
-        
-    }
+export class ArtiklNoviComponent implements OnInit { 
+    idArtikla:number;
+    broj:number;
+    naziv:string;
+    jed_mjere:string;
+    porez:number;
+    cijena:number;
+    constructor(private route: ActivatedRoute, private http: HttpClient, private _router: Router){}
+    ngOnInit(){}
 
     spremiPromjene(){
-        this.http.put("http://localhost:8181/ords/in2/api/artikli",
-        {        
-        "id":  this.idArtikla,       
+
+        this.http.post("http://localhost:8181/ords/in2/api/artikli",
+        {            
         "naziv":  this.naziv,       
         "broj": this.broj,
         "jed_mjere": this.jed_mjere,
         "porez" : this.porez,
         "cijena" : this.cijena      
         })    
-        .subscribe(
-     
-        data  => {       
-        this.uspjesno=true;
+        .subscribe(     
+        data  => {
         this.prikaziObavijest();
-        },
-        
-        error  => {
-        
-        this.uspjesno=false;
-        
-        }
-        
+        this.preusmjeri();
+        },       
+        error  => {   
+            console.log(error);  
+        }     
         );
     }
 
     prikaziObavijest(){
         const type = ['','info','success','warning','danger'];
-        let color = 2;
-        if(!this.uspjesno){
-            color=3;
-        }
-      
+        let color = 2;     
         console.log("boja: "+color);
         $.notify({
           icon: "notifications",
-          message: "Promjene uspješno spremljene."
-
+          message: "Novi artikl uspješno dodan!"
       },{
           type: type[color],
           timer: 4000,
@@ -98,6 +69,10 @@ export class ArtiklEditComponent implements OnInit {
             '<a href="{3}" target="{4}" data-notify="url"></a>' +
           '</div>'
       });
+    }
+
+    preusmjeri(){
+        this._router.navigate(['/artikli']);
     }
     
 

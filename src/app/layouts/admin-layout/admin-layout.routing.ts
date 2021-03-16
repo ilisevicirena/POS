@@ -1,3 +1,5 @@
+import { PartneriComponent } from './../../components/partneri/partneri.component';
+import { ArtiklNoviComponent } from './../../components/atrikl-novi/artikl-novi.component';
 import { ArtiklEditComponent } from './../../components/artikl-edit/artikl-edit.component';
 import { ArtikliComponent } from './../../components/artikli/artikli.component';
 import { Routes } from '@angular/router';
@@ -64,4 +66,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'artikli',      component: ArtikliComponent },
     { path: 'artikl-edit',      component: ArtiklEditComponent },
+    { path: 'artikl-novi',      component: ArtiklNoviComponent },
+    { path: 'partneri',      component: PartneriComponent },
+    
 ];

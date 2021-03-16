@@ -1,3 +1,5 @@
+import { PartneriComponent } from './../../components/partneri/partneri.component';
+import { ArtiklNoviComponent } from './../../components/atrikl-novi/artikl-novi.component';
 import { ArtiklEditComponent } from './../../components/artikl-edit/artikl-edit.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ArtikliComponent } from './../../components/artikli/artikli.component';
@@ -52,7 +54,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NotificationsComponent,
     UpgradeComponent,
     ArtikliComponent,
-    ArtiklEditComponent
+    ArtiklEditComponent,
+    ArtiklNoviComponent,
+    PartneriComponent
   ]
 })
 

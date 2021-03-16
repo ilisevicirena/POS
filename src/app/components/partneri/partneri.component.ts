@@ -1,16 +1,15 @@
-import { ArtiklEditComponent } from './../artikl-edit/artikl-edit.component';
+
 import { HttpClient } from '@angular/common/http';
-import { Artikl } from './artikl.class';
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
-    selector:'artikli',
-    templateUrl:'./artikli.component.html'
+    selector:'partneri',
+    templateUrl:'./partneri.component.html'
 })
 
-export class ArtikliComponent implements OnInit{ 
+export class PartneriComponent implements OnInit{ 
     artikli=[]; 
     public filter: string;
     constructor(private http: HttpClient, private _router: Router) { }
