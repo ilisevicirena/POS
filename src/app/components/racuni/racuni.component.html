@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <button mat-raised-button type="submit" (click)="preusmjeriNovi()" class="btn btn-primary pull-right" >Novi račun</button>
+                <button mat-raised-button type="submit" (click)="preusmjeriNovi()" class="btn btn-info pull-right" >Novi račun</button>
                 <br>
                 <div class="col-md-3">
                     <mat-form-field class="example-full-width">
@@ -10,14 +10,14 @@
                     </mat-form-field>                
                 </div>     
                 <div class="card">
-                    <div class="card-header card-header-primary">
+                    <div class="card-header card-header-info">
                         <h4 class="card-title ">Računi</h4>
                         <p class="card-category"> </p>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
-                                <thead class=" text-primary">
+                                <thead class=" text-info">
                                     <th (click)="sort('racunrc')">
                                         ID 
                                     </th>
@@ -66,11 +66,11 @@
                                         <td>
                                             {{e.vrstarc}}
                                         </td>
-                                        <th> <button type="button" (click)=" dohvatiStavke(e.racunrc); e.expanded = !e.expanded; e.expanded ? tekst='Sakrij detalje' : tekst='Prikaži detalje'" class="btn btn-primary btn-round">{{tekst}}</button></th>
+                                        <th> <button type="button" (click)=" dohvatiStavke(e.racunrc); e.expanded = !e.expanded; e.expanded ? tekst='Sakrij detalje' : tekst='Prikaži detalje'" class="btn btn-info btn-round">{{tekst}}</button></th>
                                         
                                     </tr>
                                     <ng-container *ngIf="e.expanded">
-                                        <tr>
+                                        <tr class=" text-info">
                                             <td>
                                                 Naziv artikla
                                              </td>
@@ -110,7 +110,7 @@
                                                 {{stavka.ukupno}}
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr class=" text-info">
                                             <td>
                                                 
                                              </td>

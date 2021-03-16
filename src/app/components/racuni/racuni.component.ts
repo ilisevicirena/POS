@@ -25,7 +25,7 @@ export class RacuniComponent implements OnInit{
     }
 
     dohvatiStavke(id_racuna){
-        console.log("kliknu me" +id_racuna);
+      
         let izn=0;
         this.http.get('http://localhost:8181/ords/in2/api/stavke?id='+id_racuna).pipe(map(res=>res)).subscribe((res:any)=>{
             this.stavke=res.items;
@@ -39,7 +39,7 @@ export class RacuniComponent implements OnInit{
         
     }
 
-    key: string='id';
+    key: string='racunrc';
     reverse: boolean=false;
     sort(key){
         this.key=key;
