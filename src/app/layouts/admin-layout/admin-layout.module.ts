@@ -1,3 +1,4 @@
+import { RacuniComponent } from './../../components/racuni/racuni.component';
 import { VrstaRacunaNoviComponent } from './../../components/vrsta-racuna-novi/vrsta-racuna-novi.component';
 import { VrstaRacunaEditComponent } from './../../components/vrsta-racuna-edit/vrsta-racuna-edit.component';
 import { VrsteRacunaComponent } from './../../components/vrste-racuna/vrste-racuna.component';
@@ -72,7 +73,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     KorisnikNoviComponent,
     VrsteRacunaComponent,
     VrstaRacunaEditComponent,
-    VrstaRacunaNoviComponent
+    VrstaRacunaNoviComponent,
+    RacuniComponent
   ]
 })
 

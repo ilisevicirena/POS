@@ -1,0 +1,148 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <button mat-raised-button type="submit" (click)="preusmjeriNovi()" class="btn btn-primary pull-right" >Novi račun</button>
+                <br>
+                <div class="col-md-3">
+                    <mat-form-field class="example-full-width">
+                      <input [(ngModel)]="filter" matInput placeholder="Pretraživanje">                
+                    </mat-form-field>                
+                </div>     
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">Računi</h4>
+                        <p class="card-category"> </p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th (click)="sort('racunrc')">
+                                        ID 
+                                    </th>
+                                    <th (click)="sort('datumrc')">
+                                        Datum
+                                    </th>
+                                    <th (click)="sort('brojrc')">
+                                        Broj
+                                    </th>
+                                    <th (click)="sort('napomenarc')">
+                                        Napomena
+                                    </th>
+                                    <th (click)="sort('partnerrc')">
+                                        Partner
+                                    </th>
+                                    <th (click)="sort('korisnikrc')">
+                                        Korisnik
+                                    </th>
+                                    <th (click)="sort('vrstarc')">
+                                        Vrsta
+                                    </th>
+                                    <th></th>
+                                   
+                                </thead>
+                                <tbody>
+                                    <ng-container *ngFor="let e of racuni | orderBy: key : reverse | filter:filter | paginate: {itemsPerPage: 25, currentPage: p} ; let i=index">
+                                    <tr >
+                                        <td>
+                                           {{e.racunrc}}
+                                        </td>
+                                        <td>
+                                            {{e.datumrc}}
+                                        </td>
+                                        <td>
+                                            {{e.brojrc}}
+                                        </td>
+                                        <td>
+                                            {{e.napomenarc}}
+                                        </td>
+                                        <td>
+                                            {{e.partnerrc}}
+                                        </td>
+                                        <td>
+                                            {{e.korisnikrc}}
+                                        </td>
+                                        <td>
+                                            {{e.vrstarc}}
+                                        </td>
+                                        <th> <button type="button" (click)=" dohvatiStavke(e.racunrc); e.expanded = !e.expanded; e.expanded ? tekst='Sakrij detalje' : tekst='Prikaži detalje'" class="btn btn-primary btn-round">{{tekst}}</button></th>
+                                        
+                                    </tr>
+                                    <ng-container *ngIf="e.expanded">
+                                        <tr>
+                                            <td>
+                                                Naziv artikla
+                                             </td>
+                                             <td>
+                                                Količina
+                                             </td>
+                                             <td>
+                                                Cijena
+                                             </td>
+                                             <td>
+                                                PDV
+                                             </td>
+                                             <td>
+                                                Osnovica
+                                             </td>
+                                             <td>
+                                                Ukupno
+                                             </td>
+                                         </tr>
+                                        <tr *ngFor="let stavka of stavke">
+                                            <td>
+                                                {{stavka.naziv}}
+                                            </td>
+                                            <td>
+                                                {{stavka.kolicina}}
+                                            </td>
+                                            <td>
+                                                {{stavka.cijena}}
+                                            </td>
+                                            <td>
+                                                {{stavka.pdv}}
+                                            </td>
+                                            <td>
+                                                {{stavka.osnovica}}
+                                            </td>
+                                            <td>
+                                                {{stavka.ukupno}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                             </td>
+                                             <td>
+                                                
+                                             </td>
+                                             <td>
+                                                
+                                             </td>
+                                             <td>
+                                                
+                                             </td>
+                                             <td>
+                                                Iznos
+                                             </td>
+                                             <td>
+                                                {{iznos}}
+                                             </td>
+                                        </tr>
+                                        
+
+                                    </ng-container>
+                                </ng-container>
+                                </tbody>
+                                <pagination-controls class="custum-pagination" (pageChange)="p= $event" previousLabel="Prethodna" nextLabel="Sljedeća"></pagination-controls>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+  </div>
+  

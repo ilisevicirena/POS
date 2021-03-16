@@ -13,6 +13,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/partneri', title: 'Partneri',  icon:'contacts', class: '' },
     { path: '/korisnici', title: 'Korisnici',  icon:'people', class: '' }, 
     { path: '/vrste-racuna', title: 'Vrste računa',  icon:'content_paste', class: '' },
+    { path: '/racuni', title: 'Računi',  icon:'person', class: '' }, 
     
     { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' }, 
     { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
