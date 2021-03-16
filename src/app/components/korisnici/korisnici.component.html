@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <button mat-raised-button type="submit" (click)="preusmjeriNovi()" class="btn btn-danger pull-right" >Novi korisnik</button>
+                <button mat-raised-button type="submit" (click)="preusmjeriNovi()" class="btn btn-info pull-right" >Novi korisnik</button>
                 <br>
                 <div class="col-md-3">
                     <mat-form-field class="example-full-width">
@@ -10,14 +10,14 @@
                     </mat-form-field>                
                 </div>     
                 <div class="card">
-                    <div class="card-header card-header-danger">
+                    <div class="card-header card-header-info">
                         <h4 class="card-title ">Korisnici</h4>
                         <p class="card-category"> </p>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
-                                <thead class=" text-primary">
+                                <thead class=" text-info">
                                     <th (click)="sort('id')">
                                         ID 
                                     </th>
@@ -43,7 +43,7 @@
                                         </td>
                                         
                                         <td>
-                                            <button type="button" (click)="preusmjeriEdit(e.id)" class="btn btn-danger btn-round">Uredi</button>
+                                            <button type="button" (click)="preusmjeriEdit(e.id)" class="btn btn-info btn-round">Uredi</button>
                                         </td>
                                     </tr>
                                     

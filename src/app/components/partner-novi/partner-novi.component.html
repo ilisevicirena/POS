@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header card-header-danger">
+                    <div class="card-header card-header-warning">
                         <h4 class="card-title">Partner</h4>
-                        <p class="card-category">Uredi podatke o partneru</p>
+                        <p class="card-category">Dodaj novog partnera</p>
                     </div>
                     <div class="card-body">
                         <form #formcontrol="ngForm">
@@ -45,7 +45,7 @@
                                
                             </div>
                             
-                            <button mat-raised-button type="submit" (click)="spremiPromjene()" class="btn btn-danger pull-right" [disabled]="!formcontrol.form.valid">Spremi promjene</button>
+                            <button mat-raised-button type="submit" (click)="spremiPromjene()" class="btn btn-warning pull-right" [disabled]="!formcontrol.form.valid">Spremi promjene</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
