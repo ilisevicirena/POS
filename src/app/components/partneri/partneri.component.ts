@@ -10,13 +10,13 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 
 export class PartneriComponent implements OnInit{ 
-    artikli=[]; 
+    partneri=[]; 
     public filter: string;
     constructor(private http: HttpClient, private _router: Router) { }
     ngOnInit():void  {
        
-        this.http.get('http://localhost:8181/ords/in2/api/artikli').pipe(map(res=>res)).subscribe((res:any)=>{
-            this.artikli=res.items;
+        this.http.get('http://localhost:8181/ords/in2/api/partner').pipe(map(res=>res)).subscribe((res:any)=>{
+            this.partneri=res.items;
         }) 
     }
 
@@ -30,11 +30,11 @@ export class PartneriComponent implements OnInit{
     p:number=1;
 
     preusmjeriEdit(id_artikla){
-        this._router.navigate(['/artikl-edit', {id: id_artikla}]);
+        this._router.navigate(['/partner-edit', {id: id_artikla}]);
     }
 
     preusmjeriNovi(){
-        this._router.navigate(['/artikl-novi']);
+        this._router.navigate(['/partner-novi']);
     }
 
 }
