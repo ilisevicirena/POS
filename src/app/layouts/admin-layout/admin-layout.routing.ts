@@ -1,3 +1,4 @@
+import { VrstaRacunaEditComponent } from './../../components/vrsta-racuna-edit/vrsta-racuna-edit.component';
 import { VrsteRacunaComponent } from './../../components/vrste-racuna/vrste-racuna.component';
 import { KorisnikNoviComponent } from './../../components/korisnik-novi/korisnik-novi.component';
 import { KoirisnikEditComponent } from './../../components/korisnik-edit/korisnik-edit.component';
@@ -80,5 +81,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'korisnik-edit',      component: KoirisnikEditComponent },
     { path: 'korisnik-novi',      component: KorisnikNoviComponent },
     { path: 'vrste-racuna',      component: VrsteRacunaComponent },
+    { path: 'vrste-racuna-edit',      component: VrstaRacunaEditComponent },
     
 ];
