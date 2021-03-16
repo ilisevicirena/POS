@@ -1,0 +1,40 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Korisnik</h4>
+                        <p class="card-category">Uredi podatke o korisniku</p>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                      <input [(ngModel)] = "idKorisnika" matInput placeholder="ID" name="id_partnera" disabled>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-5">
+                                    <mat-form-field class="example-full-width">
+                                      <input [(ngModel)] = "korime" matInput placeholder="Korisničko ime" name="korime_korisnika" type="text" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-5">
+                                    <mat-form-field class="example-full-width">
+                                      <input [(ngModel)] = "lozinka" matInput placeholder="Lozinka" type="password" name="lozinka_korisnika" required>
+                                    </mat-form-field>
+                                  </div>
+                                
+                            </div>     
+                            <button mat-raised-button type="submit" (click)="spremiPromjene()" class="btn btn-danger pull-right" >Spremi promjene</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+  </div>
+  

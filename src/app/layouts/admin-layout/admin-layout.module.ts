@@ -1,3 +1,4 @@
+import { KoirisnikEditComponent } from './../../components/korisnik-edit/korisnik-edit.component';
 import { KorisniciComponent } from './../../components/korisnici/korisnici.component';
 import { PartnerNoviComponent } from './../../components/partner-novi/partner-novi.component';
 import { PartnerEditComponent } from './../../components/partner-edit/partner-edit.component';
@@ -62,7 +63,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     PartneriComponent,
     PartnerEditComponent,
     PartnerNoviComponent,
-    KorisniciComponent
+    KorisniciComponent,
+    KoirisnikEditComponent
   ]
 })
 
