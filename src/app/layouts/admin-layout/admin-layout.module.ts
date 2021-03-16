@@ -1,3 +1,4 @@
+import { PartnerNoviComponent } from './../../components/partner-novi/partner-novi.component';
 import { PartnerEditComponent } from './../../components/partner-edit/partner-edit.component';
 import { PartneriComponent } from './../../components/partneri/partneri.component';
 import { ArtiklNoviComponent } from './../../components/atrikl-novi/artikl-novi.component';
@@ -58,7 +59,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ArtiklEditComponent,
     ArtiklNoviComponent,
     PartneriComponent,
-    PartnerEditComponent
+    PartnerEditComponent,
+    PartnerNoviComponent
   ]
 })
 
