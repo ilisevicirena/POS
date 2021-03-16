@@ -1,3 +1,4 @@
+import { KorisnikNoviComponent } from './../../components/korisnik-novi/korisnik-novi.component';
 import { KoirisnikEditComponent } from './../../components/korisnik-edit/korisnik-edit.component';
 import { KorisniciComponent } from './../../components/korisnici/korisnici.component';
 import { PartnerNoviComponent } from './../../components/partner-novi/partner-novi.component';
@@ -76,5 +77,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'partner-novi',      component: PartnerNoviComponent },
     { path: 'korisnici',      component: KorisniciComponent },
     { path: 'korisnik-edit',      component: KoirisnikEditComponent },
+    { path: 'korisnik-novi',      component: KorisnikNoviComponent },
     
 ];
