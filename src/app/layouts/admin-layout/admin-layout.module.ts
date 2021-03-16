@@ -1,3 +1,4 @@
+import { VrsteRacunaComponent } from './../../components/vrste-racuna/vrste-racuna.component';
 import { KorisnikNoviComponent } from './../../components/korisnik-novi/korisnik-novi.component';
 import { KoirisnikEditComponent } from './../../components/korisnik-edit/korisnik-edit.component';
 import { KorisniciComponent } from './../../components/korisnici/korisnici.component';
@@ -66,7 +67,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     PartnerNoviComponent,
     KorisniciComponent,
     KoirisnikEditComponent,
-    KorisnikNoviComponent
+    KorisnikNoviComponent,
+    VrsteRacunaComponent
   ]
 })
 

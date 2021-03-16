@@ -1,0 +1,61 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <button mat-raised-button type="submit" (click)="preusmjeriNovi()" class="btn btn-danger pull-right" >Nova vrsta računa</button>
+                <br>
+                <div class="col-md-3">
+                    <mat-form-field class="example-full-width">
+                      <input [(ngModel)]="filter" matInput placeholder="Pretraživanje">                
+                    </mat-form-field>                
+                </div>     
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Vrste računa</h4>
+                        <p class="card-category"> </p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th (click)="sort('id')">
+                                        ID 
+                                    </th>
+                                    <th (click)="sort('naziv')">
+                                        Naziv
+                                    </th>
+                                    <th (click)="sort('opis')">
+                                        Opis
+                                    </th>
+                                    
+                                    
+                                    <th></th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let e of vrste | orderBy: key : reverse | filter:filter | paginate: {itemsPerPage: 25, currentPage: p} ; let i=index">
+                                        <td>
+                                            {{e.id}}
+                                        </td>
+                                        <td>
+                                            {{e.naziv}}
+                                        </td>
+                                        <td>
+                                            {{e.opis}}
+                                        </td>                                       
+                                        <td>
+                                            <button type="button" (click)="preusmjeriEdit(e.id)" class="btn btn-danger btn-round">Uredi</button>
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                                <pagination-controls class="custum-pagination" (pageChange)="p= $event" previousLabel="Prethodna" nextLabel="Sljedeća"></pagination-controls>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+  </div>
+  
