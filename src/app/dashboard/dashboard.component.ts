@@ -8,43 +8,20 @@ import { map } from 'rxjs/operators';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit, AfterViewInit{
+export class DashboardComponent implements OnInit{
 
   brojArtikala:number;
   brojRacuna:number;
   brojKorisnika:number;
   brojPartnera:number;
   podaci=[];
+  artikli=[];
+  korisnici=[];
+  partneri=[];
+  racuni=[];
   
   constructor(private http: HttpClient) { }
  
-  startAnimationForBarChart(chart){
-      let seq2: any, delays2: any, durations2: any;
-
-      seq2 = 0;
-      delays2 = 80;
-      durations2 = 500;
-      chart.on('draw', function(data) {
-        if(data.type === 'bar'){
-            seq2++;
-            data.element.animate({
-              opacity: {
-                begin: seq2 * delays2,
-                dur: durations2,
-                from: 0,
-                to: 1,
-                easing: 'ease'
-              }
-            });
-        }
-      });
-
-      seq2 = 0;
-  };
-
-  getData(){
-    
-  }
   ngOnInit() {
      
     this.http.get('http://localhost:8181/ords/in2/api/grafovi').pipe(map(res=>res)).subscribe((res:any)=>{
@@ -56,11 +33,22 @@ export class DashboardComponent implements OnInit, AfterViewInit{
         brojke.push(e.broj as number);
       }
       this.crtaj(nazivi,brojke);
+    }) 
 
-  }) 
-  
-   
+    this.http.get('http://localhost:8181/ords/in2/api/artikli').pipe(map(res=>res)).subscribe((res:any)=>{
+            this.artikli=res.items;
+            this.brojArtikala=this.artikli.length;
+        }) 
+        
+        this.http.get('http://localhost:8181/ords/in2/api/partner').pipe(map(res=>res)).subscribe((res:any)=>{
+          this.partneri=res.items;
+          this.brojPartnera=this.partneri.length;
+      }) 
     
+      this.http.get('http://localhost:8181/ords/in2/api/korisnici').pipe(map(res=>res)).subscribe((res:any)=>{
+        this.korisnici=res.items;
+        this.brojKorisnika=this.korisnici.length;
+    }) 
   }
 
   crtaj(labels, series){
@@ -91,8 +79,30 @@ export class DashboardComponent implements OnInit, AfterViewInit{
 
     this.startAnimationForBarChart(websiteViewsChart);
   }
-  ngAfterViewInit(){
-    
-  }
+
+  startAnimationForBarChart(chart){
+    let seq2: any, delays2: any, durations2: any;
+
+    seq2 = 0;
+    delays2 = 80;
+    durations2 = 500;
+    chart.on('draw', function(data) {
+      if(data.type === 'bar'){
+          seq2++;
+          data.element.animate({
+            opacity: {
+              begin: seq2 * delays2,
+              dur: durations2,
+              from: 0,
+              to: 1,
+              easing: 'ease'
+            }
+          });
+      }
+    });
+
+    seq2 = 0;
+};
+
 
 }
