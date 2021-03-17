@@ -13,15 +13,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/partneri', title: 'Partneri',  icon:'contacts', class: '' },
     { path: '/korisnici', title: 'Korisnici',  icon:'people', class: '' }, 
     { path: '/vrste-racuna', title: 'Vrste računa',  icon:'content_paste', class: '' },
-    { path: '/racuni', title: 'Računi',  icon:'library_books', class: '' }, 
-    
-    { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' }, 
-    { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
-    { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
-    { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
-    { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
-    { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
-    { path: '/upgrade', title: 'Odjava',  icon:'logout', class: 'active-pro' },
+    { path: '/racuni', title: 'Računi',  icon:'library_books', class: '' },  
+    { path: 'logout', title: 'Odjava',  icon:'logout', class: 'active-pro' },
 ];
 
 @Component({

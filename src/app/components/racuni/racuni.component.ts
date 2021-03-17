@@ -48,12 +48,10 @@ export class RacuniComponent implements OnInit{
 
     p:number=1;
 
-    preusmjeriEdit(id_artikla){
-        this._router.navigate(['/artikl-edit', {id: id_artikla}]);
-    }
+    
 
     preusmjeriNovi(){
-        this._router.navigate(['/artikl-novi']);
+        this._router.navigate(['/racun-novi']);
     }
 
 }

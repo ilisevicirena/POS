@@ -1,3 +1,4 @@
+import { RacunNoviComponent } from './../../components/racun-novi/racun-novi.component';
 import { RacuniComponent } from './../../components/racuni/racuni.component';
 import { VrstaRacunaNoviComponent } from './../../components/vrsta-racuna-novi/vrsta-racuna-novi.component';
 import { VrstaRacunaEditComponent } from './../../components/vrsta-racuna-edit/vrsta-racuna-edit.component';
@@ -86,5 +87,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'vrste-racuna-edit',      component: VrstaRacunaEditComponent },
     { path: 'vrste-racuna-novi',      component: VrstaRacunaNoviComponent },
     { path: 'racuni',      component: RacuniComponent },
+    { path: 'racun-novi',      component: RacunNoviComponent },
     
 ];

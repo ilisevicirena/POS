@@ -1,3 +1,6 @@
+import { AuthGaurdService } from './service/auth-gaurd.service';
+import { LogoutComponent } from './logout/logout.component';
+import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
@@ -16,8 +19,10 @@ const routes: Routes =[
     children: [{
       path: '',
       loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-    }]
-  }
+    }], canActivate:[AuthGaurdService]
+  },
+  { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent, canActivate:[AuthGaurdService] },
 ];
 
 @NgModule({

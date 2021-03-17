@@ -66,7 +66,10 @@
                                         <td>
                                             {{e.vrstarc}}
                                         </td>
-                                        <th> <button type="button" (click)=" dohvatiStavke(e.racunrc); e.expanded = !e.expanded; e.expanded ? tekst='Sakrij detalje' : tekst='Prikaži detalje'" class="btn btn-info btn-round">{{tekst}}</button></th>
+                                        <th> 
+                                            <button type="button" [disabled]="clicked1" (click)=" dohvatiStavke(e.racunrc); e.expanded = true; clicked1=true; clicked2=false;" class="btn btn-info btn-round">&#8595;</button>
+                                            <button type="button" [disabled]="clicked2" clicked2=true; (click)=" e.expanded = false; clicked1=false; clicked2=true;" class="btn btn-info btn-round">&#8593;</button>
+                                        </th>
                                         
                                     </tr>
                                     <ng-container *ngIf="e.expanded">

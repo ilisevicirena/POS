@@ -1,0 +1,138 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title">Stavka</h4>
+                        <p class="card-category">Dodaj novu stavku</p>
+                    </div>
+                    <div class="card-body">
+                        <form #formcontrol="ngForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput [formControl]="searchTerm"
+                                      [matAutocomplete]="auto" [(ngModel)] = "brojArtikla"  placeholder="Broj artikla" name="id_artikla" required type="text">
+                                      <mat-autocomplete #auto="matAutocomplete">
+                                        <mat-option *ngFor="let books of myBooks | async" [value]="books.broj">
+                                          {{ books.broj }}
+                                        </mat-option>
+                                      </mat-autocomplete>
+                                    
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input [(ngModel)] = "nazivArtikla" matInput placeholder="Naziv artikla" name="naziv_artikla" type="text" required disabled>
+                                    </mat-form-field>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input [(ngModel)] = "kolicina" matInput placeholder="Količina" type="number" name="kolicina_artikla" required>
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input [(ngModel)] = "cijena" matInput placeholder="Cijena" type="number" name="cijena_artikla" required disabled>
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input [(ngModel)] = "pdv" matInput placeholder="PDV" type="number" name="pdv_artikla" required disabled>
+                                    </mat-form-field>
+                                  </div>
+                            </div>
+                            
+                            
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input [(ngModel)] = "osnovica" matInput placeholder="Osnovica" type="number" name="osnovica_artikla" required disabled>
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-md-4">
+                                      <mat-form-field class="example-full-width">
+                                        <input [(ngModel)] = "iznosPDV" matInput placeholder="Iznos PDV-a" type="number" name="iznos_pdva" required disabled>
+                                      </mat-form-field>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <mat-form-field class="example-full-width">
+                                        <input [(ngModel)] = "ukupno" matInput placeholder="Ukupno" type="number" name="ukupno_artikla" required disa>
+                                      </mat-form-field>
+                                    </div>
+                               
+                            </div>
+                            
+                            <button mat-raised-button type="submit" (click)="spremiPromjene()" class="btn btn-info pull-right" [disabled]="!formcontrol.form.valid">Spremi promjene</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+           
+
+
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title">Partner</h4>
+                        <p class="card-category">Dodaj novog partnera</p>
+                    </div>
+                    <div class="card-body">
+                        <form #formcontrol="ngForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                      <input [(ngModel)] = "idPartnera" matInput placeholder="ID" name="id_partnera" disabled>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input [(ngModel)] = "broj" matInput placeholder="Broj" name="broj_partnera" type="text" required>
+                                    </mat-form-field>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <mat-form-field class="example-full-width">
+                                    <input [(ngModel)] = "naziv" matInput placeholder="Naziv" type="text" name="naziv_partnera" required>
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input [(ngModel)] = "adresa" matInput placeholder="Adresa" type="text" name="adresa_partnera" required>
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input [(ngModel)] = "mjesto" matInput placeholder="Mjesto" type="text" name="mjesto_partnera" type="text" required>
+                                  </mat-form-field>
+                                </div>
+                               
+                            </div>
+                            
+                            <button mat-raised-button type="submit" (click)="spremiPromjene()" class="btn btn-info pull-right" [disabled]="!formcontrol.form.valid">Spremi promjene</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+  </div>
+  

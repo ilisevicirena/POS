@@ -1,3 +1,4 @@
+import { RacunNoviComponent } from './../../components/racun-novi/racun-novi.component';
 import { RacuniComponent } from './../../components/racuni/racuni.component';
 import { VrstaRacunaNoviComponent } from './../../components/vrsta-racuna-novi/vrsta-racuna-novi.component';
 import { VrstaRacunaEditComponent } from './../../components/vrsta-racuna-edit/vrsta-racuna-edit.component';
@@ -35,7 +36,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { Ng2SearchPipeModule } from 'ng2-search-filter'; 
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { MatAutocompleteModule } from '@angular/material';
+import { Ng2CompleterModule } from 'ng2-completer';
 
 @NgModule({
   imports: [
@@ -51,7 +53,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatTooltipModule,
     Ng2SearchPipeModule,
     Ng2OrderModule,
-    NgxPaginationModule 
+    NgxPaginationModule,
+    MatAutocompleteModule,
+    Ng2CompleterModule 
   ],
   declarations: [
     DashboardComponent,
@@ -74,7 +78,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
     VrsteRacunaComponent,
     VrstaRacunaEditComponent,
     VrstaRacunaNoviComponent,
-    RacuniComponent
+    RacuniComponent,
+    RacunNoviComponent
+  ],
+  providers:[
+    
   ]
 })
 
