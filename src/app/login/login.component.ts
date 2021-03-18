@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  username = 'javainuse'
+  username = ''
   password = ''
   invalidLogin = false
 

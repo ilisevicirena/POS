@@ -5,45 +5,41 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { resolve } from 'path';
 declare var $: any;
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
   korisnik=[];
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
 
-  funkcija(username,password){
-    let promise = new Promise((resolve, reject) => {
-      let apiURL = 'http://localhost:8181/ords/in2/api/prijava?korime='+username+'&lozinka='+password;
-      this.http.get(apiURL)
-        .toPromise()
-        .then(
-          (res:any) => { // Success
-          this.korisnik = res.items;
-          resolve();
-          },
-          msg => { // Error
-          reject(msg);
-          }
-        );
-    });
-    return promise;
+   }
+
+  async getData(username,password){
+    
+     await this.http.get('http://localhost:8181/ords/in2/api/prijava?korime='+username+'&lozinka='+password).toPromise().then((response:any)=>{
+        this.korisnik.push(...response.items);
+      });
+      
   }
 
-   authenticate(username, password) {
+  async authenticate(username, password) {
+   
     username=username.toUpperCase();
-    this.funkcija(username,password);
-    
-    
-       
+    await this.getData(username,password);
+
     if (this.korisnik.length==1) {
       sessionStorage.setItem('username', username)
+      this.korisnik=[];
       return true;
     } else {
       this.prikaziObavijest();
+      console.log("duzina2 "+this.korisnik.length);
+      this.korisnik=[];
       return false;
     }
+    
   }
 
   isUserLoggedIn() {

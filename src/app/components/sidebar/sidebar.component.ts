@@ -14,7 +14,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/korisnici', title: 'Korisnici',  icon:'people', class: '' }, 
     { path: '/vrste-racuna', title: 'Vrste računa',  icon:'content_paste', class: '' },
     { path: '/racuni', title: 'Računi',  icon:'library_books', class: '' },  
-    { path: 'logout', title: 'Odjava',  icon:'logout', class: 'active-pro' },
+    { path: 'logout', title: 'Odjava',  icon:'logout', class: '' },
 ];
 
 @Component({
@@ -24,11 +24,14 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
+  user:string;
+
 
   constructor() { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.user = sessionStorage.getItem('username')
   }
   isMobileMenu() {
       if ($(window).width() > 991) {
