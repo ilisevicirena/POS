@@ -1,22 +1,21 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div class="card">
                     <div class="card-header card-header-info">
                         <h4 class="card-title">Stavka</h4>
                         <p class="card-category">Dodaj novu stavku</p>
                     </div>
                     <div class="card-body">
-                        <form #formcontrol="ngForm">
+                        <form #formcontrol="ngForm" >
                             <div class="row">
                                 <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                      <input matInput [formControl]="searchTerm"
-                                      [matAutocomplete]="auto" [(ngModel)] = "brojArtikla"  placeholder="Broj artikla" name="id_artikla" required type="text">
-                                      <mat-autocomplete #auto="matAutocomplete">
-                                        <mat-option *ngFor="let books of myBooks | async" [value]="books.broj">
-                                          {{ books.broj }}
+                                      <input type="text" id="broj_id" placeholder="Broj artikla" matInput [formControl]="myControl" [matAutocomplete]="auto" required (focus)="ucitajPodatke($event)" >
+                                      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="focusChange($event.option.value)" [displayWith]="getOptionText">
+                                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option"  >
+                                          {{option.Broj }} - {{option.Naziv}}
                                         </mat-option>
                                       </mat-autocomplete>
                                     
@@ -32,7 +31,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                   <mat-form-field class="example-full-width">
-                                    <input [(ngModel)] = "kolicina" matInput placeholder="Količina" type="number" name="kolicina_artikla" required>
+                                    <input id="kolicina_id" [(ngModel)] = "kolicina" matInput placeholder="Količina" type="number" name="kolicina_artikla" required (ngModelChange)="izracunaj()">
                                   </mat-form-field>
                                 </div>
                                 <div class="col-md-4">
@@ -61,13 +60,13 @@
                                     </div>
                                     <div class="col-md-4">
                                       <mat-form-field class="example-full-width">
-                                        <input [(ngModel)] = "ukupno" matInput placeholder="Ukupno" type="number" name="ukupno_artikla" required disa>
+                                        <input [(ngModel)] = "ukupno" matInput placeholder="Ukupno" type="number" name="ukupno_artikla" required disabled>
                                       </mat-form-field>
                                     </div>
                                
                             </div>
                             
-                            <button mat-raised-button type="submit" (click)="spremiPromjene()" class="btn btn-info pull-right" [disabled]="!formcontrol.form.valid">Spremi promjene</button>
+                            <button mat-raised-button type="submit" (click)="dodajStavku();" class="btn btn-info pull-right" [disabled]="!formcontrol.form.valid">Dodaj stavku</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
@@ -77,53 +76,175 @@
 
 
 
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <div class="card">
                     <div class="card-header card-header-info">
-                        <h4 class="card-title">Partner</h4>
-                        <p class="card-category">Dodaj novog partnera</p>
+                        <h4 class="card-title">Račun</h4>
+                        <p class="card-category">Novi račun</p>
                     </div>
                     <div class="card-body">
-                        <form #formcontrol="ngForm">
+                        <form #formcontrol2="ngForm">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-2">
                                   <mat-form-field class="example-full-width">
-                                      <input [(ngModel)] = "idPartnera" matInput placeholder="ID" name="id_partnera" disabled>
+                                      <input [(ngModel)] = "idRacuna" matInput placeholder="ID" name="id_racuna" disabled type="number">
                                     </mat-form-field>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
-                                      <input [(ngModel)] = "broj" matInput placeholder="Broj" name="broj_partnera" type="text" required>
+                                      <input [(ngModel)] = "brojRacuna" matInput placeholder="Broj" name="broj_racuna" type="number" disabled>
                                     </mat-form-field>
                                 </div>
+                                <div class="col-md-3">
+                                  <mat-form-field class="example-full-width">
+                                    <input [(ngModel)] = "datumRacuna" matInput placeholder="Datum" name="datum_racuna" type="datetime"  disabled>
+                                  </mat-form-field>
+                              </div>
+                                <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input [(ngModel)] = "korisnik" matInput placeholder="Korisnik" name="korisnik" type="text"  disabled>
+                                  </mat-form-field>
+                              </div>
+                              
                                 
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                  <mat-form-field class="example-full-width">
-                                    <input [(ngModel)] = "naziv" matInput placeholder="Naziv" type="text" name="naziv_partnera" required>
-                                  </mat-form-field>
-                                </div>
-                            </div>
-                            
+                                                      
                             
                             <div class="row">
                                 <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                    <input [(ngModel)] = "adresa" matInput placeholder="Adresa" type="text" name="adresa_partnera" required>
+                                    <mat-select [(ngModel)] = "vrstaRacuna" (selectionChange)="odaberiVrstu($event.value)"  placeholder="Vrsta računa"  name="vrsta_racuna"  [formControl]="myControl2"  required>
+                                   
+                                      <mat-option *ngFor="let option of vrste" [value]="option"  >
+                                        {{option.Naziv}}
+                                      </mat-option>
+                                    </mat-select>
                                   </mat-form-field>
                                 </div>
                                 <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                    <input [(ngModel)] = "mjesto" matInput placeholder="Mjesto" type="text" name="mjesto_partnera" type="text" required>
+                                    <input type="text" [ngModel]="partner" id="partner_id" placeholder="Partner" matInput [formControl]="myControl3" [matAutocomplete]="auto2" required>
+                                      <mat-autocomplete #auto2="matAutocomplete" (optionSelected)="odaberiPartnera($event.option.value)" [displayWith]="getOptionText2">
+                                        <mat-option *ngFor="let option of filteredPartneri | async" [value]="option"  >
+                                           {{option.Naziv}}
+                                        </mat-option>
+                                      </mat-autocomplete>
                                   </mat-form-field>
                                 </div>
                                
                             </div>
-                            
-                            <button mat-raised-button type="submit" (click)="spremiPromjene()" class="btn btn-info pull-right" [disabled]="!formcontrol.form.valid">Spremi promjene</button>
+                            <div class="row">
+                              <div class="col-md-9">
+                                <mat-form-field class="example-full-width">
+                                  <input [(ngModel)] = "napomena" id="napomena_id" matInput placeholder="Napomena" name="napomena" type="text" >
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-3">
+                              <button mat-raised-button type="submit" (click)="spremiPromjene()" class="btn btn-info pull-right">Spremi</button>
                             <div class="clearfix"></div>
+                          </div>
+                            </div>
+                            
+                           
                         </form>
+
+
+
+
+
+
+                        <div class="card">
+                          
+                          <div class="card-body">
+                              <div class="table-responsive">
+                                  <table class="table">
+                                      <thead class=" text-info">
+                                          <th >
+                                              Artikl 
+                                          </th>
+                                          <th >
+                                              Količina
+                                          </th>
+                                          <th >
+                                              Cijena
+                                          </th>
+                                          <th >
+                                              PDV
+                                          </th>
+                                          <th >
+                                              Osnovica
+                                          </th>
+                                          <th >
+                                            Iznos PDV-a
+                                          </th>                                
+                                          <th>
+                                            Ukupno
+                                          </th>
+                                          <th></th>
+                                      </thead>
+                                      <tbody>
+                                          <tr *ngFor="let e of stavke">
+                                              <td>
+                                                  {{e.Artikl.Naziv}}
+                                              </td>
+                                              <td>
+                                                  {{e.Kolicina}}
+                                              </td>
+                                              <td>
+                                                  {{e.Cijena}}
+                                              </td>
+                                              <td>
+                                                  {{e.PDV}}
+                                              </td>
+                                              <td>
+                                                  {{e.Osnovica}}
+                                              </td>
+                                             
+                                              <td>
+                                                {{e.IznosPDVa}}
+                                              </td>
+                                              <td>
+                                                {{e.Ukupno}}
+                                              </td>
+                                              <td>
+                                                <button type="button" (click)="obrisiStavku(e)" class="btn btn-info btn-round">x</button>
+                                              </td>
+                                          </tr>
+                                          
+                                      </tbody>
+                                     
+                                  </table>
+                                  
+                              </div>
+                          </div>
+                          
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                              <input [(ngModel)] = "osnovicaRacuna" matInput placeholder="Osnovica" name="id_racuna" disabled type="number">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                              <input [(ngModel)] = "iznospdvRacuna" matInput placeholder="Iznos PDV-a" name="broj_racuna" type="number" disabled>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-form-field class="example-full-width">
+                            <input [(ngModel)] = "iznosRacuna" matInput placeholder="Iznos računa" name="datum_racuna" type="number"  disabled>
+                          </mat-form-field>
+                     
+                      
+                        
+                    </div>
+
+
+
+
+
+
                     </div>
                 </div>
             </div>
@@ -134,5 +255,6 @@
 
         </div>
     </div>
+    
   </div>
   

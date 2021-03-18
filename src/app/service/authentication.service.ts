@@ -29,6 +29,7 @@ export class AuthenticationService {
 
     if (this.korisnik.length==1) {
       sessionStorage.setItem('username', username)
+      sessionStorage.setItem('idKorisnika',this.korisnik[0].id);
       this.korisnik=[];
       return true;
     } else {

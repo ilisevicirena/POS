@@ -3,10 +3,16 @@ export class Artikl{
     Broj: number;
     Naziv: string;
     JedinicaMjere: string;
-    Porez: Number;
-    Cijena: Number;
+    Porez: number;
+    Cijena: number;
 
-    constructor(){
+    constructor(id:number, broj:number, naziv:string, jedmjere:string, porez:number, cijena:number){
+        this.Id=id;
+        this.Broj=broj;
+        this.Naziv=naziv;
+        this.JedinicaMjere=jedmjere;
+        this.Porez=porez;
+        this.Cijena=cijena;
 
     }
 }

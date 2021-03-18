@@ -21,6 +21,8 @@ export class ArtikliComponent implements OnInit{
         }) 
     }
 
+  
+
     key: string='id';
     reverse: boolean=false;
     sort(key){
