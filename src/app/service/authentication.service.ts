@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { UpperCasePipe } from '@angular/common';
-import { stringify } from '@angular/compiler/src/util';
+
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { resolve } from 'path';
+
 declare var $: any;
 
 @Injectable({
