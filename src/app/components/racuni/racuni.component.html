@@ -3,6 +3,7 @@
         <div class="row">
             <div class="col-md-12">
                 <button mat-raised-button type="submit" (click)="preusmjeriNovi()" class="btn btn-info pull-right" >Novi račun</button>
+                
                 <br>
                 <div class="col-md-3">
                     <mat-form-field class="example-full-width">
@@ -40,6 +41,7 @@
                                         Vrsta
                                     </th>
                                     <th></th>
+                                    <th>Ispis računa</th>
                                    
                                 </thead>
                                 <tbody>
@@ -66,10 +68,15 @@
                                         <td>
                                             {{e.vrstarc}}
                                         </td>
-                                        <th> 
+                                        <td> 
                                             <button type="button" [disabled]="clicked1" (click)=" dohvatiStavke(e.racunrc); e.expanded = true; clicked1=true; clicked2=false;" class="btn btn-info btn-round">&#8595;</button>
                                             <button type="button" [disabled]="clicked2" clicked2=true; (click)=" e.expanded = false; clicked1=false; clicked2=true;" class="btn btn-info btn-round">&#8593;</button>
-                                        </th>
+                                          
+
+                                        </td>
+                                        <td>
+                                            <button type="button" (click)="openModal(e.racunrc)" class="btn btn-info btn-round" >Ispiši</button>
+                                        </td>
                                         
                                     </tr>
                                     <ng-container *ngIf="e.expanded">
@@ -142,10 +149,11 @@
                             </table>
                         </div>
                     </div>
+
                 </div>
             </div>
         
         </div>
     </div>
   </div>
-  
+ 

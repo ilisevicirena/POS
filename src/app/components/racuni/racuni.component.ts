@@ -1,9 +1,13 @@
+import { ModalComponent } from './../../modal/modal.component';
+
+
 
 import { HttpClient } from '@angular/common/http';
 
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 
 @Component({
     selector:'racuni',
@@ -16,7 +20,8 @@ export class RacuniComponent implements OnInit{
     stavke=[];
     tekst="Prikaži detalje";
     iznos=0;
-    constructor(private http: HttpClient, private _router: Router) { }
+    odabraniRacun:string;
+    constructor(private http: HttpClient, private _router: Router, public matDialog: MatDialog) { }
     ngOnInit():void  {
        
         this.http.get('http://localhost:8181/ords/in2/api/racuni').pipe(map(res=>res)).subscribe((res:any)=>{
@@ -53,5 +58,17 @@ export class RacuniComponent implements OnInit{
     preusmjeriNovi(){
         this._router.navigate(['/racun-novi']);
     }
+
+  
+    openModal(racunId:string) {
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = false;
+        dialogConfig.id = racunId;
+        dialogConfig.height = "700px";
+        dialogConfig.width = "800px";
+        const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
+      }
+
+   
 
 }

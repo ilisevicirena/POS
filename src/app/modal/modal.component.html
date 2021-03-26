@@ -1,0 +1,89 @@
+<div id="modal-content-wrapper">
+    <header id="modal-header">
+        <h2 id="modal-title">POS app d.o.o.</h2>
+        <h2 id="modal-title">Adresa poduzeća</h2>
+        <h2 id="modal-title">Kontakt: 000 000 000</h2>
+        <h1 id="modal-title2">Račun</h1>
+        <hr>
+    </header>
+    <section id="modal-body">
+       <div *ngFor="let e of racuni">
+       <p>Broj računa: {{e.brojrc}}</p>
+       <p>Datum: {{e.datumrc}}</p>
+       <p>Poslovni partner: {{e.partnerrc}}</p>
+       <p>Korisnik: {{e.korisnikrc}}</p>
+       <p>Vrsta računa: {{e.vrstarc}}</p>
+       <p>Napomena: {{e.napomenarc}}</p>
+    </div>
+    <h1 id="modal-title2">Stavke računa</h1>
+    <table class="table">
+        <thead>
+            <th>
+                Naziv artikla
+            </th>
+            <th>
+                Količina
+            </th>
+            <th>
+                Cijena
+            </th>
+            <th>
+                PDV
+            </th>
+            <th>
+                Osnovica
+            </th>
+            <th>
+                Ukupno
+            </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let stavka of stavke">
+                <td>
+                    {{stavka.naziv}}
+                </td>
+                <td>
+                    {{stavka.kolicina}}
+                </td>
+                <td>
+                    {{stavka.cijena}}
+                </td>
+                <td>
+                    {{stavka.pdv}}
+                </td>
+                <td>
+                    {{stavka.osnovica}}
+                </td>
+                <td>
+                    {{stavka.ukupno}}
+                </td>
+            </tr>
+            <tr class=" text-info">
+                <td>
+                    
+                 </td>
+                 <td>
+                    
+                 </td>
+                 <td>
+                    
+                 </td>
+                 <td>
+                    
+                 </td>
+                 <td>
+                    Iznos
+                 </td>
+                 <td>
+                    {{iznos}}
+                 </td>
+            </tr>
+        </tbody>
+
+    </table>
+    </section>
+    <footer id="modal-footer">
+        
+        <button mat-raised-button class="btn btn-info pull-right" (click)="closeModal()">Zatvori</button>
+    </footer>
+</div>

@@ -1,3 +1,5 @@
+import { ModalComponent } from './../../modal/modal.component';
+
 import { RacunNoviComponent } from './../../components/racun-novi/racun-novi.component';
 import { RacuniComponent } from './../../components/racuni/racuni.component';
 import { VrstaRacunaNoviComponent } from './../../components/vrsta-racuna-novi/vrsta-racuna-novi.component';
@@ -30,7 +32,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { Ng2SearchPipeModule } from 'ng2-search-filter'; 
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { MatAutocompleteModule } from '@angular/material';
+import { MatAutocompleteModule, MatDialogModule } from '@angular/material';
 import { Ng2CompleterModule } from 'ng2-completer';
 
 @NgModule({
@@ -49,11 +51,12 @@ import { Ng2CompleterModule } from 'ng2-completer';
     Ng2OrderModule,
     NgxPaginationModule,
     MatAutocompleteModule,
-    Ng2CompleterModule 
+    Ng2CompleterModule,
+    MatDialogModule
+    
   ],
   declarations: [
     DashboardComponent,
-    
     ArtikliComponent,
     ArtiklEditComponent,
     ArtiklNoviComponent,
@@ -67,11 +70,14 @@ import { Ng2CompleterModule } from 'ng2-completer';
     VrstaRacunaEditComponent,
     VrstaRacunaNoviComponent,
     RacuniComponent,
-    RacunNoviComponent
+    RacunNoviComponent,
+    ModalComponent,
+    
   ],
   providers:[
     
-  ]
+  ],
+  entryComponents: [ModalComponent]
 })
 
 export class AdminLayoutModule {}

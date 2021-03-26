@@ -1,3 +1,4 @@
+
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -20,6 +21,7 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 
@@ -41,16 +43,19 @@ import { LogoutComponent } from './logout/logout.component';
     MatSelectModule,
     MatTooltipModule,
     
+    
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
     LogoutComponent,
+    
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+ 
  
 })
 export class AppModule { }

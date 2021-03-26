@@ -1,3 +1,4 @@
+
 import { RacunNoviComponent } from './../../components/racun-novi/racun-novi.component';
 import { RacuniComponent } from './../../components/racuni/racuni.component';
 import { VrstaRacunaNoviComponent } from './../../components/vrsta-racuna-novi/vrsta-racuna-novi.component';
@@ -33,5 +34,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'vrste-racuna-novi',      component: VrstaRacunaNoviComponent },
     { path: 'racuni',      component: RacuniComponent },
     { path: 'racun-novi',      component: RacunNoviComponent },
+  
     
 ];
