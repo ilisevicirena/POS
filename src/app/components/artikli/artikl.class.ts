@@ -1,3 +1,4 @@
+// klasa koja definira strukturu artikla
 export class Artikl{
     Id: number;
     Broj: number;
@@ -13,6 +14,5 @@ export class Artikl{
         this.JedinicaMjere=jedmjere;
         this.Porez=porez;
         this.Cijena=cijena;
-
     }
 }

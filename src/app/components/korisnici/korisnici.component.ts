@@ -1,6 +1,4 @@
-import { ArtiklEditComponent } from './../artikl-edit/artikl-edit.component';
 import { HttpClient } from '@angular/common/http';
-
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
@@ -11,16 +9,19 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 
 export class KorisniciComponent implements OnInit{ 
-    korisnici=[]; 
-    public filter: string;
-    constructor(private http: HttpClient, private _router: Router) { }
+    Korisnici = []; 
+    public filter : string;
+
+    constructor(private http : HttpClient, private _router : Router) { }
+
     ngOnInit():void  {
-       
+       // dohvaća sve korisnike s API-ja
         this.http.get('http://localhost:8181/ords/in2/api/korisnici').pipe(map(res=>res)).subscribe((res:any)=>{
-            this.korisnici=res.items;
+            this.Korisnici=res.items;
         }) 
     }
 
+    // sortira podatke u tablici
     key: string='id';
     reverse: boolean=false;
     sort(key){
@@ -28,12 +29,15 @@ export class KorisniciComponent implements OnInit{
         this.reverse=!this.reverse;
     }
 
+    //ngModel
     p:number=1;
 
+    // preusmjerava na uređivanje odabranog korisnika
     preusmjeriEdit(id_korisnika){
         this._router.navigate(['/korisnik-edit', {id: id_korisnika}]);
     }
 
+    // preusmjerava na kreiranje novog korisnika
     preusmjeriNovi(){
         this._router.navigate(['/korisnik-novi']);
     }

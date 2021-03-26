@@ -2,8 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <button mat-raised-button type="submit" (click)="preusmjeriNovi()" class="btn btn-info pull-right" >Novi račun</button>
-                
+                <button mat-raised-button type="submit" (click)="preusmjeriNovi()" class="btn btn-info pull-right" >Novi račun</button>       
                 <br>
                 <div class="col-md-3">
                     <mat-form-field class="example-full-width">
@@ -41,8 +40,7 @@
                                         Vrsta
                                     </th>
                                     <th></th>
-                                    <th>Ispis računa</th>
-                                   
+                                    <th>Ispis računa</th>                
                                 </thead>
                                 <tbody>
                                     <ng-container *ngFor="let e of racuni | orderBy: key : reverse | filter:filter | paginate: {itemsPerPage: 25, currentPage: p} ; let i=index">
@@ -71,13 +69,10 @@
                                         <td> 
                                             <button type="button" [disabled]="clicked1" (click)=" dohvatiStavke(e.racunrc); e.expanded = true; clicked1=true; clicked2=false;" class="btn btn-info btn-round">&#8595;</button>
                                             <button type="button" [disabled]="clicked2" clicked2=true; (click)=" e.expanded = false; clicked1=false; clicked2=true;" class="btn btn-info btn-round">&#8593;</button>
-                                          
-
                                         </td>
                                         <td>
                                             <button type="button" (click)="openModal(e.racunrc)" class="btn btn-info btn-round" >Ispiši</button>
-                                        </td>
-                                        
+                                        </td>         
                                     </tr>
                                     <ng-container *ngIf="e.expanded">
                                         <tr class=" text-info">
@@ -123,37 +118,33 @@
                                         <tr class=" text-info">
                                             <td>
                                                 
-                                             </td>
-                                             <td>
+                                            </td>
+                                            <td>
                                                 
-                                             </td>
-                                             <td>
+                                            </td>
+                                            <td>
                                                 
-                                             </td>
-                                             <td>
+                                            </td>
+                                            <td>
                                                 
-                                             </td>
-                                             <td>
+                                            </td>
+                                            <td>
                                                 Iznos
-                                             </td>
-                                             <td>
+                                            </td>
+                                            <td>
                                                 {{iznos}}
-                                             </td>
+                                            </td>
                                         </tr>
-                                        
-
                                     </ng-container>
                                 </ng-container>
                                 </tbody>
-                                <pagination-controls class="custum-pagination" (pageChange)="p= $event" previousLabel="Prethodna" nextLabel="Sljedeća"></pagination-controls>
+                                    <pagination-controls class="custum-pagination" (pageChange)="p= $event" previousLabel="Prethodna" nextLabel="Sljedeća"></pagination-controls>
                             </table>
                         </div>
                     </div>
-
                 </div>
-            </div>
-        
+            </div>      
         </div>
     </div>
-  </div>
+</div>
  

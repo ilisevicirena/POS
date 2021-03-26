@@ -1,6 +1,4 @@
-import { ArtiklEditComponent } from './../artikl-edit/artikl-edit.component';
 import { HttpClient } from '@angular/common/http';
-import { Artikl } from './artikl.class';
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
@@ -11,18 +9,19 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 
 export class ArtikliComponent implements OnInit{ 
-    artikli=[]; 
-    public filter: string;
+    Artikli=[]; 
+    public Filter: string;
+
     constructor(private http: HttpClient, private _router: Router) { }
+    
     ngOnInit():void  {
-       
+        // dohvaća sve artikle s API-ja      
         this.http.get('http://localhost:8181/ords/in2/api/artikli').pipe(map(res=>res)).subscribe((res:any)=>{
-            this.artikli=res.items;
+            this.Artikli=res.items;
         }) 
     }
 
-  
-
+    // sortiranje podataka u tablici
     key: string='id';
     reverse: boolean=false;
     sort(key){
@@ -30,12 +29,15 @@ export class ArtikliComponent implements OnInit{
         this.reverse=!this.reverse;
     }
 
+    //ngModel
     p:number=1;
 
+    // preusmjerava na uređivanje odabranog artikla
     preusmjeriEdit(id_artikla){
         this._router.navigate(['/artikl-edit', {id: id_artikla}]);
     }
 
+    // preusmjerava na kreiranje novog artikla
     preusmjeriNovi(){
         this._router.navigate(['/artikl-novi']);
     }

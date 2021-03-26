@@ -31,7 +31,7 @@
                                     <th></th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let e of korisnici | orderBy: key : reverse | filter:filter | paginate: {itemsPerPage: 25, currentPage: p} ; let i=index">
+                                    <tr *ngFor="let e of Korisnici | orderBy: key : reverse | filter:filter | paginate: {itemsPerPage: 25, currentPage: p} ; let i=index">
                                         <td>
                                             {{e.id}}
                                         </td>
@@ -53,8 +53,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        
+            </div>        
         </div>
     </div>
   </div>

@@ -8,16 +8,17 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
+
 export class NavbarComponent implements OnInit {
     private listTitles: any[];
     location: Location;
-      mobile_menu_visible: any = 0;
+    mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
 
     constructor(location: Location,  private element: ElementRef, private router: Router) {
-      this.location = location;
-          this.sidebarVisible = false;
+        this.location = location;
+        this.sidebarVisible = false;
     }
 
     ngOnInit(){
@@ -40,22 +41,19 @@ export class NavbarComponent implements OnInit {
         setTimeout(function(){
             toggleButton.classList.add('toggled');
         }, 500);
-
         body.classList.add('nav-open');
-
         this.sidebarVisible = true;
     };
+
     sidebarClose() {
         const body = document.getElementsByTagName('body')[0];
         this.toggleButton.classList.remove('toggled');
         this.sidebarVisible = false;
         body.classList.remove('nav-open');
     };
-    sidebarToggle() {
-        // const toggleButton = this.toggleButton;
-        // const body = document.getElementsByTagName('body')[0];
-        var $toggle = document.getElementsByClassName('navbar-toggler')[0];
 
+    sidebarToggle() {
+        var $toggle = document.getElementsByClassName('navbar-toggler')[0];
         if (this.sidebarVisible === false) {
             this.sidebarOpen();
         } else {
@@ -64,7 +62,6 @@ export class NavbarComponent implements OnInit {
         const body = document.getElementsByTagName('body')[0];
 
         if (this.mobile_menu_visible == 1) {
-            // $('html').removeClass('nav-open');
             body.classList.remove('nav-open');
             if ($layer) {
                 $layer.remove();
@@ -82,13 +79,11 @@ export class NavbarComponent implements OnInit {
             var $layer = document.createElement('div');
             $layer.setAttribute('class', 'close-layer');
 
-
             if (body.querySelectorAll('.main-panel')) {
                 document.getElementsByClassName('main-panel')[0].appendChild($layer);
             }else if (body.classList.contains('off-canvas-sidebar')) {
                 document.getElementsByClassName('wrapper-full-page')[0].appendChild($layer);
             }
-
             setTimeout(function() {
                 $layer.classList.add('visible');
             }, 100);
@@ -102,10 +97,8 @@ export class NavbarComponent implements OnInit {
                   $toggle.classList.remove('toggled');
               }, 400);
             }.bind(this);
-
             body.classList.add('nav-open');
             this.mobile_menu_visible = 1;
-
         }
     };
 
@@ -114,7 +107,6 @@ export class NavbarComponent implements OnInit {
       if(titlee.charAt(0) === '#'){
           titlee = titlee.slice( 1 );
       }
-
       for(var item = 0; item < this.listTitles.length; item++){
           if(this.listTitles[item].path === titlee){
               return this.listTitles[item].title;

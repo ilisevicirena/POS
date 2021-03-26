@@ -6,7 +6,7 @@
                 <br>
                 <div class="col-md-3">
                     <mat-form-field class="example-full-width">
-                      <input [(ngModel)]="filter" matInput placeholder="Pretraživanje">                
+                      <input [(ngModel)]="Filter" matInput placeholder="Pretraživanje">                
                     </mat-form-field>                
                 </div>     
                 <div class="card">
@@ -39,7 +39,7 @@
                                     <th></th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let e of artikli | orderBy: key : reverse | filter:filter | paginate: {itemsPerPage: 25, currentPage: p} ; let i=index">
+                                    <tr *ngFor="let e of Artikli | orderBy: key : reverse | filter:Filter | paginate: {itemsPerPage: 25, currentPage: p} ; let i=index">
                                         <td>
                                             {{e.id}}
                                         </td>
@@ -61,16 +61,14 @@
                                         <td>
                                             <button type="button" (click)="preusmjeriEdit(e.id)" class="btn btn-primary btn-round">Uredi</button>
                                         </td>
-                                    </tr>
-                                    
+                                    </tr>                                
                                 </tbody>
-                                <pagination-controls class="custum-pagination" (pageChange)="p= $event" previousLabel="Prethodna" nextLabel="Sljedeća"></pagination-controls>
+                                    <pagination-controls class="custum-pagination" (pageChange)="p= $event" previousLabel="Prethodna" nextLabel="Sljedeća"></pagination-controls>
                             </table>
                         </div>
                     </div>
                 </div>
-            </div>
-        
+            </div>       
         </div>
     </div>
   </div>

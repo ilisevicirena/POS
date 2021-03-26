@@ -1,4 +1,3 @@
-import { Optional } from '@angular/core';
 import { Artikl } from './../artikli/artikl.class';
 export class Stavka{
     Artikl:Artikl;
@@ -9,8 +8,6 @@ export class Stavka{
     IznosPDVa:number;
     Ukupno:number;
    
-    constructor(){
-        
-       
-    }
+    constructor(){}      
+    
 }

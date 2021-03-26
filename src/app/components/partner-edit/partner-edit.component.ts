@@ -1,10 +1,7 @@
-import { browser } from 'protractor';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { param } from 'jquery';
 
 declare var $: any;
 
@@ -14,16 +11,21 @@ declare var $: any;
 })
 
 export class PartnerEditComponent implements OnInit { 
-    id;
-    partner;
-    idPartnera=0;
-    broj=0;
+    //ngModel varijable
+    idPartnera = 0;
+    broj = 0;
     naziv=" ";
     adresa=" ";
     mjesto=" ";
-    constructor(private route: ActivatedRoute, private http: HttpClient){  
-    }
+
+    //
+    id;
+    partner;
+
+    constructor(private route: ActivatedRoute, private http: HttpClient){ }
+
     ngOnInit(){
+        // dohvaća trenutne podatke o partneru s API-ja
         this.id = this.route.snapshot.paramMap.get('id');      
         this.http.get('http://localhost:8181/ords/in2/api/partner?id='+this.id).pipe(map(res=>res)).subscribe((res:any)=>{
             this.partner=res.items;
@@ -35,6 +37,7 @@ export class PartnerEditComponent implements OnInit {
         })    
     }
 
+    // šalje promjene na API
     spremiPromjene(){
         this.http.put("http://localhost:8181/ords/in2/api/partner",
         {        
@@ -54,6 +57,7 @@ export class PartnerEditComponent implements OnInit {
         );
     }
 
+    // generira obavijest o uspjehu
     prikaziObavijest(){
         const type = ['','info','success','warning','danger'];
         let color = 2;
@@ -62,25 +66,25 @@ export class PartnerEditComponent implements OnInit {
           icon: "notifications",
           message: "Promjene uspješno spremljene."
 
-      },{
+        },{
           type: type[color],
           timer: 4000,
           placement: {
               from: 'top',
               align: 'right'
           },
-          template: '<div data-notify="container" class="col-xl-4 col-lg-4 col-11 col-sm-4 col-md-4 alert alert-{0} alert-with-icon" role="alert">' +
+          template: 
+            '<div data-notify="container" class="col-xl-4 col-lg-4 col-11 col-sm-4 col-md-4 alert alert-{0} alert-with-icon" role="alert">' +
             '<button mat-button  type="button" aria-hidden="true" class="close mat-button" data-notify="dismiss">  <i class="material-icons">close</i></button>' +
             '<i class="material-icons" data-notify="icon">notifications</i> ' +
             '<span data-notify="title">{1}</span> ' +
             '<span data-notify="message">{2}</span>' +
             '<div class="progress" data-notify="progressbar">' +
-              '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+            '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
             '</div>' +
             '<a href="{3}" target="{4}" data-notify="url"></a>' +
-          '</div>'
+            '</div>'
       });
     }
     
-
 }

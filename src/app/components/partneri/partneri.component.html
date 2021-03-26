@@ -32,9 +32,10 @@
                                     </th>
                                     <th (click)="sort('mjesto')">
                                         Mjesto
+                                    </th>        
+                                    <th>
+
                                     </th>
-                                    
-                                    <th></th>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let e of partneri | orderBy: key : reverse | filter:filter | paginate: {itemsPerPage: 25, currentPage: p} ; let i=index">
@@ -52,22 +53,19 @@
                                         </td>
                                         <td>
                                             {{e.mjesto}}
-                                        </td>
-                                       
+                                        </td>   
                                         <td>
                                             <button type="button" (click)="preusmjeriEdit(e.id)" class="btn btn-warning btn-round">Uredi</button>
                                         </td>
                                     </tr>
-                                    
                                 </tbody>
-                                <pagination-controls class="custum-pagination" (pageChange)="p= $event" previousLabel="Prethodna" nextLabel="Sljedeća"></pagination-controls>
+                                    <pagination-controls class="custum-pagination" (pageChange)="p= $event" previousLabel="Prethodna" nextLabel="Sljedeća"></pagination-controls>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-        
         </div>
     </div>
-  </div>
+</div>
   

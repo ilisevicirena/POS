@@ -17,16 +17,14 @@
                                         <mat-option *ngFor="let option of filteredOptions | async" [value]="option"  >
                                           {{option.Broj }} - {{option.Naziv}}
                                         </mat-option>
-                                      </mat-autocomplete>
-                                    
-                                    </mat-form-field>
+                                      </mat-autocomplete>             
+                                  </mat-form-field>
                                 </div>
                                 <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
                                       <input [(ngModel)] = "nazivArtikla" matInput placeholder="Naziv artikla" name="naziv_artikla" type="text" required disabled>
                                     </mat-form-field>
-                                </div>
-                                
+                                </div>       
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
@@ -44,9 +42,7 @@
                                       <input [(ngModel)] = "pdv" matInput placeholder="PDV" type="number" name="pdv_artikla" required disabled>
                                     </mat-form-field>
                                   </div>
-                            </div>
-                            
-                            
+                            </div> 
                             <div class="row">
                                 <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
@@ -63,19 +59,13 @@
                                         <input [(ngModel)] = "ukupno" matInput placeholder="Ukupno" type="number" name="ukupno_artikla" required disabled>
                                       </mat-form-field>
                                     </div>
-                               
                             </div>
-                            
-                            <button mat-raised-button type="submit" (click)="dodajStavku();" class="btn btn-info pull-right" [disabled]="!formcontrol.form.valid">Dodaj stavku</button>
+                                <button mat-raised-button type="submit" (click)="dodajStavku();" class="btn btn-info pull-right" [disabled]="!formcontrol.form.valid">Dodaj stavku</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
                 </div>
             </div>
-           
-
-
-
             <div class="col-md-7">
                 <div class="card">
                     <div class="card-header card-header-info">
@@ -104,12 +94,8 @@
                                   <mat-form-field class="example-full-width">
                                     <input [(ngModel)] = "korisnik" matInput placeholder="Korisnik" name="korisnik" type="text"  disabled>
                                   </mat-form-field>
-                              </div>
-                              
-                                
-                            </div>
-                                                      
-                            
+                              </div>                 
+                            </div>                            
                             <div class="row">
                                 <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
@@ -131,7 +117,6 @@
                                       </mat-autocomplete>
                                   </mat-form-field>
                                 </div>
-                               
                             </div>
                             <div class="row">
                               <div class="col-md-9">
@@ -144,18 +129,9 @@
                               <button mat-raised-button type="submit" (click)="spremiPromjene()" class="btn btn-info pull-right">Spremi</button>
                             <div class="clearfix"></div>
                           </div>
-                            </div>
-                            
-                           
+                            </div>  
                         </form>
-
-
-
-
-
-
-                        <div class="card">
-                          
+                        <div class="card">                        
                           <div class="card-body">
                               <div class="table-responsive">
                                   <table class="table">
@@ -210,15 +186,11 @@
                                               <td>
                                                 <button type="button" (click)="obrisiStavku(e)" class="btn btn-info btn-round">x</button>
                                               </td>
-                                          </tr>
-                                          
-                                      </tbody>
-                                     
-                                  </table>
-                                  
+                                          </tr>  
+                                      </tbody>                                     
+                                  </table>                                  
                               </div>
-                          </div>
-                          
+                          </div>                         
                       </div>
                       <div class="row">
                         <div class="col-md-4">
@@ -234,27 +206,12 @@
                         <div class="col-md-4">
                           <mat-form-field class="example-full-width">
                             <input [(ngModel)] = "iznosRacuna" matInput placeholder="Iznos računa" name="datum_racuna" type="number"  disabled>
-                          </mat-form-field>
-                     
-                      
-                        
+                          </mat-form-field>        
                     </div>
-
-
-
-
-
-
                     </div>
                 </div>
             </div>
-
-
-
-
-
         </div>
-    </div>
-    
-  </div>
+    </div>   
+</div>
   
