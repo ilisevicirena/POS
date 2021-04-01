@@ -10,23 +10,18 @@ declare var $: any;
 export class AuthenticationService {
 
   korisnik=[];
-  constructor(private http: HttpClient) {
 
-   }
+  constructor(private http: HttpClient) {  }
 
-  async getData(username,password){
-    
+  async getData(username,password){  
      await this.http.get('http://localhost:8181/ords/in2/api/prijava?korime='+username+'&lozinka='+password).toPromise().then((response:any)=>{
         this.korisnik.push(...response.items);
-      });
-      
+      });      
   }
 
-  async authenticate(username, password) {
-   
+  async authenticate(username, password) { 
     username=username.toUpperCase();
     await this.getData(username,password);
-
     if (this.korisnik.length==1) {
       sessionStorage.setItem('username', username)
       sessionStorage.setItem('idKorisnika',this.korisnik[0].id);
@@ -37,8 +32,7 @@ export class AuthenticationService {
       console.log("duzina2 "+this.korisnik.length);
       this.korisnik=[];
       return false;
-    }
-    
+    }   
   }
 
   isUserLoggedIn() {

@@ -11,22 +11,25 @@ import { MatDialog, MatDialogConfig } from '@angular/material';
 })
 
 export class RacuniComponent implements OnInit{ 
+
     racuni=[]; 
     public filter: string;
     stavke=[];
     tekst="Prikaži detalje";
     iznos=0;
     odabraniRacun:string;
+
     constructor(private http: HttpClient, private _router: Router, public matDialog: MatDialog) { }
+
     ngOnInit():void  {
-       
+       // dohvaća sve račune s API-ja
         this.http.get('http://localhost:8181/ords/in2/api/racuni').pipe(map(res=>res)).subscribe((res:any)=>{
             this.racuni=res.items;
         }) 
     }
 
-    dohvatiStavke(id_racuna){
-      
+    // dohvaća stavke odabranog računa
+    dohvatiStavke(id_racuna){     
         let izn=0;
         this.http.get('http://localhost:8181/ords/in2/api/stavke?id='+id_racuna).pipe(map(res=>res)).subscribe((res:any)=>{
             this.stavke=res.items;
@@ -34,12 +37,11 @@ export class RacuniComponent implements OnInit{
             for(let e of this.stavke){
                 izn=izn+e.ukupno as number;
             }
-            this.iznos=izn;
-        
-        }) 
-        
+            this.iznos=izn;     
+        })       
     }
 
+    // sortira podatke
     key: string='racunrc';
     reverse: boolean=false;
     sort(key){
@@ -49,13 +51,13 @@ export class RacuniComponent implements OnInit{
 
     p:number=1;
 
-    
-
+    // preusmjerava na kreiranje novog računa
     preusmjeriNovi(){
         this._router.navigate(['/racun-novi']);
     }
 
   
+    // generira print verziju računa
     openModal(racunId:string) {
         const dialogConfig = new MatDialogConfig();
         dialogConfig.disableClose = false;
@@ -64,7 +66,5 @@ export class RacuniComponent implements OnInit{
         dialogConfig.width = "800px";
         const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
       }
-
-   
 
 }

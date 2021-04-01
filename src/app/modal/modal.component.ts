@@ -17,30 +17,24 @@ export class ModalComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // dohvaća podatke o računu s API-ja
     this.http.get('http://localhost:8181/ords/in2/api/racuni?id='+this.racunid).pipe(map(res=>res)).subscribe((res:any)=>{
       this.racuni=res.items;
     });
 
-    
-        this.http.get('http://localhost:8181/ords/in2/api/stavke?id='+this.racunid).pipe(map(res=>res)).subscribe((res:any)=>{
+    // dohvaća podatke o stavkama računa s API-ja
+    this.http.get('http://localhost:8181/ords/in2/api/stavke?id='+this.racunid).pipe(map(res=>res)).subscribe((res:any)=>{
             this.stavke=res.items;
-
             for(let e of this.stavke){
                 this.iznos=this.iznos+e.ukupno as number;
             }
            
         });
-
-
   }
 
- 
-
-  
- 
+  // zatvara prozor
   closeModal() {
     this.dialogRef.close();
-    console.log(this.racuni);
   }
 
 }

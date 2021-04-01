@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit{
   constructor(private http: HttpClient) { }
  
   ngOnInit() {
-     
+    // dohvaća podatke za graf s API-ja  
     this.http.get('http://localhost:8181/ords/in2/api/grafovi').pipe(map(res=>res)).subscribe((res:any)=>{
       this.podaci=res.items;
       let nazivi=[];
@@ -35,32 +35,36 @@ export class DashboardComponent implements OnInit{
       this.crtaj(nazivi,brojke);
     }) 
 
+    // dohvaća podatke o artiklima s API-ja
     this.http.get('http://localhost:8181/ords/in2/api/artikli').pipe(map(res=>res)).subscribe((res:any)=>{
             this.artikli=res.items;
             this.brojArtikala=this.artikli.length;
         }) 
         
-        this.http.get('http://localhost:8181/ords/in2/api/partner').pipe(map(res=>res)).subscribe((res:any)=>{
+    // dohvaća podatke o partnerima s API-ja
+    this.http.get('http://localhost:8181/ords/in2/api/partner').pipe(map(res=>res)).subscribe((res:any)=>{
           this.partneri=res.items;
           this.brojPartnera=this.partneri.length;
       }) 
     
-      this.http.get('http://localhost:8181/ords/in2/api/korisnici').pipe(map(res=>res)).subscribe((res:any)=>{
+    // dohvaća podatke o korisnicima s API-ja
+    this.http.get('http://localhost:8181/ords/in2/api/korisnici').pipe(map(res=>res)).subscribe((res:any)=>{
         this.korisnici=res.items;
         this.brojKorisnika=this.korisnici.length;
     }) 
 
+    // dohvaća podatke o računima s API-ja
     this.http.get('http://localhost:8181/ords/in2/api/racuni').pipe(map(res=>res)).subscribe((res:any)=>{
         this.racuni=res.items;
         this.brojRacuna=this.racuni.length;
     }) 
   }
 
+  // crta graf
   crtaj(labels, series){
     var datawebsiteViewsChart = {
       series: [series],
-      labels: labels  
-      
+      labels: labels      
     };
     var optionswebsiteViewsChart = {
         axisX: {
@@ -81,13 +85,12 @@ export class DashboardComponent implements OnInit{
       }]
     ];
     var websiteViewsChart = new Chartist.Bar('#websiteViewsChart', datawebsiteViewsChart, optionswebsiteViewsChart, responsiveOptions);
-
     this.startAnimationForBarChart(websiteViewsChart);
   }
 
+  // animira graf
   startAnimationForBarChart(chart){
     let seq2: any, delays2: any, durations2: any;
-
     seq2 = 0;
     delays2 = 80;
     durations2 = 500;
@@ -105,7 +108,6 @@ export class DashboardComponent implements OnInit{
           });
       }
     });
-
     seq2 = 0;
 };
 
