@@ -197,7 +197,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/navbar/navbar.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/navbar/navbar.component.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -290,8 +290,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="112"
-                            class="link-to-prism">src/app/components/navbar/navbar.component.ts:112</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="105"
+                            class="link-to-prism">src/app/components/navbar/navbar.component.ts:105</a></div>
                 </td>
             </tr>
 
@@ -329,8 +329,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/components/navbar/navbar.component.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/components/navbar/navbar.component.ts:24</a></div>
                 </td>
             </tr>
 
@@ -407,8 +407,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">src/app/components/navbar/navbar.component.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/components/navbar/navbar.component.ts:38</a></div>
                 </td>
             </tr>
 
@@ -446,8 +446,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">src/app/components/navbar/navbar.component.ts:54</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/app/components/navbar/navbar.component.ts:55</a></div>
                 </td>
             </tr>
 
@@ -490,7 +490,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/components/navbar/navbar.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/navbar/navbar.component.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -517,7 +517,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/navbar/navbar.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/navbar/navbar.component.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -549,7 +549,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/navbar/navbar.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/navbar/navbar.component.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -577,7 +577,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/navbar/navbar.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/navbar/navbar.component.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -605,7 +605,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/navbar/navbar.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/navbar/navbar.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -628,16 +628,17 @@ import { Router } from &#x27;@angular/router&#x27;;
   templateUrl: &#x27;./navbar.component.html&#x27;,
   styleUrls: [&#x27;./navbar.component.css&#x27;]
 })
+
 export class NavbarComponent implements OnInit {
     private listTitles: any[];
     location: Location;
-      mobile_menu_visible: any &#x3D; 0;
+    mobile_menu_visible: any &#x3D; 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
 
     constructor(location: Location,  private element: ElementRef, private router: Router) {
-      this.location &#x3D; location;
-          this.sidebarVisible &#x3D; false;
+        this.location &#x3D; location;
+        this.sidebarVisible &#x3D; false;
     }
 
     ngOnInit(){
@@ -660,22 +661,19 @@ export class NavbarComponent implements OnInit {
         setTimeout(function(){
             toggleButton.classList.add(&#x27;toggled&#x27;);
         }, 500);
-
         body.classList.add(&#x27;nav-open&#x27;);
-
         this.sidebarVisible &#x3D; true;
     };
+
     sidebarClose() {
         const body &#x3D; document.getElementsByTagName(&#x27;body&#x27;)[0];
         this.toggleButton.classList.remove(&#x27;toggled&#x27;);
         this.sidebarVisible &#x3D; false;
         body.classList.remove(&#x27;nav-open&#x27;);
     };
-    sidebarToggle() {
-        // const toggleButton &#x3D; this.toggleButton;
-        // const body &#x3D; document.getElementsByTagName(&#x27;body&#x27;)[0];
-        var $toggle &#x3D; document.getElementsByClassName(&#x27;navbar-toggler&#x27;)[0];
 
+    sidebarToggle() {
+        var $toggle &#x3D; document.getElementsByClassName(&#x27;navbar-toggler&#x27;)[0];
         if (this.sidebarVisible &#x3D;&#x3D;&#x3D; false) {
             this.sidebarOpen();
         } else {
@@ -684,7 +682,6 @@ export class NavbarComponent implements OnInit {
         const body &#x3D; document.getElementsByTagName(&#x27;body&#x27;)[0];
 
         if (this.mobile_menu_visible &#x3D;&#x3D; 1) {
-            // $(&#x27;html&#x27;).removeClass(&#x27;nav-open&#x27;);
             body.classList.remove(&#x27;nav-open&#x27;);
             if ($layer) {
                 $layer.remove();
@@ -702,13 +699,11 @@ export class NavbarComponent implements OnInit {
             var $layer &#x3D; document.createElement(&#x27;div&#x27;);
             $layer.setAttribute(&#x27;class&#x27;, &#x27;close-layer&#x27;);
 
-
             if (body.querySelectorAll(&#x27;.main-panel&#x27;)) {
                 document.getElementsByClassName(&#x27;main-panel&#x27;)[0].appendChild($layer);
             }else if (body.classList.contains(&#x27;off-canvas-sidebar&#x27;)) {
                 document.getElementsByClassName(&#x27;wrapper-full-page&#x27;)[0].appendChild($layer);
             }
-
             setTimeout(function() {
                 $layer.classList.add(&#x27;visible&#x27;);
             }, 100);
@@ -722,10 +717,8 @@ export class NavbarComponent implements OnInit {
                   $toggle.classList.remove(&#x27;toggled&#x27;);
               }, 400);
             }.bind(this);
-
             body.classList.add(&#x27;nav-open&#x27;);
             this.mobile_menu_visible &#x3D; 1;
-
         }
     };
 
@@ -734,7 +727,6 @@ export class NavbarComponent implements OnInit {
       if(titlee.charAt(0) &#x3D;&#x3D;&#x3D; &#x27;#&#x27;){
           titlee &#x3D; titlee.slice( 1 );
       }
-
       for(var item &#x3D; 0; item &lt; this.listTitles.length; item++){
           if(this.listTitles[item].path &#x3D;&#x3D;&#x3D; titlee){
               return this.listTitles[item].title;
@@ -750,7 +742,7 @@ export class NavbarComponent implements OnInit {
         <pre class="line-numbers"><code class="language-html">&lt;nav class&#x3D;&quot;navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top&quot;&gt;
     &lt;div class&#x3D;&quot;container-fluid&quot;&gt;
         &lt;div class&#x3D;&quot;navbar-wrapper&quot;&gt;
-          &lt;a class&#x3D;&quot;navbar-brand&quot; href&#x3D;&quot;javascript:void(0)&quot;&gt;{{getTitle()}}&lt;/a&gt;
+          &lt;a class&#x3D;&quot;navbar-brand&quot;&gt;{{getTitle()}}&lt;/a&gt;
         &lt;/div&gt;       
         &lt;div class&#x3D;&quot;collapse navbar-collapse justify-content-end&quot; id&#x3D;&quot;navigation&quot;&gt;
             
@@ -803,7 +795,7 @@ export class NavbarComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">    <div class="container-fluid">        <div class="navbar-wrapper">          <a class="navbar-brand" href="javascript:void(0)">{{getTitle()}}</a>        </div>               <div class="collapse navbar-collapse justify-content-end" id="navigation">                        <ul class="navbar-nav">                <li class="nav-item">                    <a class="nav-link" href="/dashboard">                        <i class="material-icons">dashboard</i>                        <p>                            <span class="d-lg-none d-md-block">Stats</span>                        </p>                    </a>                </li>                           </ul>        </div>    </div></nav></div>'
+        var COMPONENT_TEMPLATE = '<div><nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">    <div class="container-fluid">        <div class="navbar-wrapper">          <a class="navbar-brand">{{getTitle()}}</a>        </div>               <div class="collapse navbar-collapse justify-content-end" id="navigation">                        <ul class="navbar-nav">                <li class="nav-item">                    <a class="nav-link" href="/dashboard">                        <i class="material-icons">dashboard</i>                        <p>                            <span class="d-lg-none d-md-block">Stats</span>                        </p>                    </a>                </li>                           </ul>        </div>    </div></nav></div>'
     var COMPONENTS = [{'name': 'AdminLayoutComponent', 'selector': 'app-admin-layout'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ArtiklEditComponent', 'selector': 'artikl-edit'},{'name': 'ArtikliComponent', 'selector': 'artikli'},{'name': 'ArtiklNoviComponent', 'selector': 'artikl-novi'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'KoirisnikEditComponent', 'selector': 'korisnik-edit'},{'name': 'KorisniciComponent', 'selector': 'korisnici'},{'name': 'KorisnikNoviComponent', 'selector': 'korisnik-novi'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PartnerEditComponent', 'selector': 'partner-edit'},{'name': 'PartneriComponent', 'selector': 'partneri'},{'name': 'PartnerNoviComponent', 'selector': 'partner-novi'},{'name': 'RacuniComponent', 'selector': 'racuni'},{'name': 'RacunNoviComponent', 'selector': 'racun-novi'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'VrstaRacunaEditComponent', 'selector': 'vrsta-racuna-edit'},{'name': 'VrstaRacunaNoviComponent', 'selector': 'vrsta-racuna-novi'},{'name': 'VrsteRacunaComponent', 'selector': 'vrste-racuna'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'NavbarComponent'};

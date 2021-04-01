@@ -178,7 +178,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/korisnik-novi/korisnik-novi.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/korisnik-novi/korisnik-novi.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -271,8 +271,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/components/korisnik-novi/korisnik-novi.component.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">src/app/components/korisnik-novi/korisnik-novi.component.ts:20</a></div>
                 </td>
             </tr>
 
@@ -310,8 +310,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="70"
-                            class="link-to-prism">src/app/components/korisnik-novi/korisnik-novi.component.ts:70</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/app/components/korisnik-novi/korisnik-novi.component.ts:69</a></div>
                 </td>
             </tr>
 
@@ -349,8 +349,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">src/app/components/korisnik-novi/korisnik-novi.component.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/components/korisnik-novi/korisnik-novi.component.ts:41</a></div>
                 </td>
             </tr>
 
@@ -388,8 +388,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">src/app/components/korisnik-novi/korisnik-novi.component.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/components/korisnik-novi/korisnik-novi.component.ts:23</a></div>
                 </td>
             </tr>
 
@@ -431,7 +431,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/korisnik-novi/korisnik-novi.component.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/korisnik-novi/korisnik-novi.component.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -458,7 +458,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/korisnik-novi/korisnik-novi.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/korisnik-novi/korisnik-novi.component.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -485,7 +485,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/korisnik-novi/korisnik-novi.component.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/korisnik-novi/korisnik-novi.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -498,13 +498,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { browser } from &#x27;protractor&#x27;;
-
-import { HttpClient } from &#x27;@angular/common/http&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &#x27;@angular/common/http&#x27;;
 import { Router, ActivatedRoute, ParamMap } from &#x27;@angular/router&#x27;;
 import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { map } from &#x27;rxjs/operators&#x27;;
-import { param } from &#x27;jquery&#x27;;
 
 declare var $: any;
 
@@ -513,17 +509,18 @@ declare var $: any;
     templateUrl:&#x27;./korisnik-novi.component.html&#x27;
 })
 
-export class KorisnikNoviComponent implements OnInit { 
+export class KorisnikNoviComponent implements OnInit {
+    // ngModel varijable
     idKorisnika:number;
     korime:string;
     lozinka:string;
- 
   
     constructor(private route: ActivatedRoute, private http: HttpClient, private _router: Router){}
+    
     ngOnInit(){}
 
+    // šalje podatke na API
     spremiPromjene(){
-
         this.http.post(&quot;http://localhost:8181/ords/in2/api/korisnici&quot;,
         {            
         &quot;korime&quot;:  this.korime,       
@@ -540,38 +537,38 @@ export class KorisnikNoviComponent implements OnInit {
         );
     }
 
+    // generira obavijest o uspjehu
     prikaziObavijest(){
         const type &#x3D; [&#x27;&#x27;,&#x27;info&#x27;,&#x27;success&#x27;,&#x27;warning&#x27;,&#x27;danger&#x27;];
         let color &#x3D; 2;     
-        console.log(&quot;boja: &quot;+color);
         $.notify({
           icon: &quot;notifications&quot;,
           message: &quot;Novi korisnik uspješno dodan!&quot;
-      },{
+        },{
           type: type[color],
           timer: 4000,
           placement: {
               from: &#x27;top&#x27;,
               align: &#x27;right&#x27;
           },
-          template: &#x27;&lt;div data-notify&#x3D;&quot;container&quot; class&#x3D;&quot;col-xl-4 col-lg-4 col-11 col-sm-4 col-md-4 alert alert-{0} alert-with-icon&quot; role&#x3D;&quot;alert&quot;&gt;&#x27; +
+          template: 
+            &#x27;&lt;div data-notify&#x3D;&quot;container&quot; class&#x3D;&quot;col-xl-4 col-lg-4 col-11 col-sm-4 col-md-4 alert alert-{0} alert-with-icon&quot; role&#x3D;&quot;alert&quot;&gt;&#x27; +
             &#x27;&lt;button mat-button  type&#x3D;&quot;button&quot; aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;close mat-button&quot; data-notify&#x3D;&quot;dismiss&quot;&gt;  &lt;i class&#x3D;&quot;material-icons&quot;&gt;close&lt;/i&gt;&lt;/button&gt;&#x27; +
             &#x27;&lt;i class&#x3D;&quot;material-icons&quot; data-notify&#x3D;&quot;icon&quot;&gt;notifications&lt;/i&gt; &#x27; +
             &#x27;&lt;span data-notify&#x3D;&quot;title&quot;&gt;{1}&lt;/span&gt; &#x27; +
             &#x27;&lt;span data-notify&#x3D;&quot;message&quot;&gt;{2}&lt;/span&gt;&#x27; +
             &#x27;&lt;div class&#x3D;&quot;progress&quot; data-notify&#x3D;&quot;progressbar&quot;&gt;&#x27; +
-              &#x27;&lt;div class&#x3D;&quot;progress-bar progress-bar-{0}&quot; role&#x3D;&quot;progressbar&quot; aria-valuenow&#x3D;&quot;0&quot; aria-valuemin&#x3D;&quot;0&quot; aria-valuemax&#x3D;&quot;100&quot; style&#x3D;&quot;width: 0%;&quot;&gt;&lt;/div&gt;&#x27; +
+            &#x27;&lt;div class&#x3D;&quot;progress-bar progress-bar-{0}&quot; role&#x3D;&quot;progressbar&quot; aria-valuenow&#x3D;&quot;0&quot; aria-valuemin&#x3D;&quot;0&quot; aria-valuemax&#x3D;&quot;100&quot; style&#x3D;&quot;width: 0%;&quot;&gt;&lt;/div&gt;&#x27; +
             &#x27;&lt;/div&gt;&#x27; +
             &#x27;&lt;a href&#x3D;&quot;{3}&quot; target&#x3D;&quot;{4}&quot; data-notify&#x3D;&quot;url&quot;&gt;&lt;/a&gt;&#x27; +
-          &#x27;&lt;/div&gt;&#x27;
+            &#x27;&lt;/div&gt;&#x27;
       });
     }
 
+    // preusmjerava na prikaz svih korisnika
     preusmjeri(){
         this._router.navigate([&#x27;/korisnici&#x27;]);
     }
-    
-
 }</code></pre>
     </div>
 
@@ -602,20 +599,17 @@ export class KorisnikNoviComponent implements OnInit {
                                     &lt;mat-form-field class&#x3D;&quot;example-full-width&quot;&gt;
                                       &lt;input [(ngModel)] &#x3D; &quot;lozinka&quot; matInput placeholder&#x3D;&quot;Lozinka&quot; type&#x3D;&quot;password&quot; name&#x3D;&quot;lozinka_korisnika&quot; required&gt;
                                     &lt;/mat-form-field&gt;
-                                  &lt;/div&gt;
-                                
-                            &lt;/div&gt;
-                            
-                            &lt;button mat-raised-button type&#x3D;&quot;submit&quot; (click)&#x3D;&quot;spremiPromjene()&quot; class&#x3D;&quot;btn btn-danger pull-right&quot; [disabled]&#x3D;&quot;!formcontrol.form.valid&quot;&gt;Spremi promjene&lt;/button&gt;
+                                  &lt;/div&gt;      
+                            &lt;/div&gt;      
+                                &lt;button mat-raised-button type&#x3D;&quot;submit&quot; (click)&#x3D;&quot;spremiPromjene()&quot; class&#x3D;&quot;btn btn-danger pull-right&quot; [disabled]&#x3D;&quot;!formcontrol.form.valid&quot;&gt;Spremi promjene&lt;/button&gt;
                             &lt;div class&#x3D;&quot;clearfix&quot;&gt;&lt;/div&gt;
                         &lt;/form&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
-            &lt;/div&gt;
-           
+            &lt;/div&gt;         
         &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
+&lt;/div&gt;
   </code></pre>
     </div>
 
@@ -645,7 +639,7 @@ export class KorisnikNoviComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="main-content">    <div class="container-fluid">        <div class="row">            <div class="col-md-8">                <div class="card">                    <div class="card-header card-header-danger">                        <h4 class="card-title">Korisnik</h4>                        <p class="card-category">Dodaj novog korisnika</p>                    </div>                    <div class="card-body">                        <form #formcontrol="ngForm">                            <div class="row">                                <div class="col-md-2">                                  <mat-form-field class="example-full-width">                                      <input [(ngModel)] = "idKorisnika" matInput placeholder="ID" name="id_korisnika" disabled>                                    </mat-form-field>                                </div>                                <div class="col-md-5">                                    <mat-form-field class="example-full-width">                                      <input [(ngModel)] = "korime" matInput placeholder="Korisničko ime" name="korime_korisnika" type="text" required>                                    </mat-form-field>                                </div>                                <div class="col-md-5">                                    <mat-form-field class="example-full-width">                                      <input [(ngModel)] = "lozinka" matInput placeholder="Lozinka" type="password" name="lozinka_korisnika" required>                                    </mat-form-field>                                  </div>                                                            </div>                                                        <button mat-raised-button type="submit" (click)="spremiPromjene()" class="btn btn-danger pull-right" [disabled]="!formcontrol.form.valid">Spremi promjene</button>                            <div class="clearfix"></div>                        </form>                    </div>                </div>            </div>                   </div>    </div>  </div>  </div>'
+        var COMPONENT_TEMPLATE = '<div><div class="main-content">    <div class="container-fluid">        <div class="row">            <div class="col-md-8">                <div class="card">                    <div class="card-header card-header-danger">                        <h4 class="card-title">Korisnik</h4>                        <p class="card-category">Dodaj novog korisnika</p>                    </div>                    <div class="card-body">                        <form #formcontrol="ngForm">                            <div class="row">                                <div class="col-md-2">                                  <mat-form-field class="example-full-width">                                      <input [(ngModel)] = "idKorisnika" matInput placeholder="ID" name="id_korisnika" disabled>                                    </mat-form-field>                                </div>                                <div class="col-md-5">                                    <mat-form-field class="example-full-width">                                      <input [(ngModel)] = "korime" matInput placeholder="Korisničko ime" name="korime_korisnika" type="text" required>                                    </mat-form-field>                                </div>                                <div class="col-md-5">                                    <mat-form-field class="example-full-width">                                      <input [(ngModel)] = "lozinka" matInput placeholder="Lozinka" type="password" name="lozinka_korisnika" required>                                    </mat-form-field>                                  </div>                                  </div>                                      <button mat-raised-button type="submit" (click)="spremiPromjene()" class="btn btn-danger pull-right" [disabled]="!formcontrol.form.valid">Spremi promjene</button>                            <div class="clearfix"></div>                        </form>                    </div>                </div>            </div>                 </div>    </div></div>  </div>'
     var COMPONENTS = [{'name': 'AdminLayoutComponent', 'selector': 'app-admin-layout'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ArtiklEditComponent', 'selector': 'artikl-edit'},{'name': 'ArtikliComponent', 'selector': 'artikli'},{'name': 'ArtiklNoviComponent', 'selector': 'artikl-novi'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'KoirisnikEditComponent', 'selector': 'korisnik-edit'},{'name': 'KorisniciComponent', 'selector': 'korisnici'},{'name': 'KorisnikNoviComponent', 'selector': 'korisnik-novi'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PartnerEditComponent', 'selector': 'partner-edit'},{'name': 'PartneriComponent', 'selector': 'partneri'},{'name': 'PartnerNoviComponent', 'selector': 'partner-novi'},{'name': 'RacuniComponent', 'selector': 'racuni'},{'name': 'RacunNoviComponent', 'selector': 'racun-novi'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'VrstaRacunaEditComponent', 'selector': 'vrsta-racuna-edit'},{'name': 'VrstaRacunaNoviComponent', 'selector': 'vrsta-racuna-novi'},{'name': 'VrsteRacunaComponent', 'selector': 'vrste-racuna'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'KorisnikNoviComponent'};
